@@ -13,7 +13,9 @@ let Checkout = () => {
           src='https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg'
           alt=''
         />
-        <h3>Hello {user?.email /* ? checks if user exists */}</h3>
+        <h3>
+          Hello {user?.email /* ? checks if user exists (optional chaining) */}
+        </h3>
         <div className='checkout__title'>
           <h2>Your Shopping Basket</h2>
           {basket.map((item) => (
