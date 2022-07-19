@@ -1,9 +1,11 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import BaseRouter from "./routes";
-import Login from "./Login";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
+import Welcome from "./Welcome";
+import Login from "./Login";
+import Home from "./Home";
+import Checkout from "./Checkout";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -25,9 +27,14 @@ function App() {
     });
   }, []);
   return (
-    <Router>
-      <BaseRouter />
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Welcome />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/checkout' element={<Checkout />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

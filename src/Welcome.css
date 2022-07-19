@@ -1,0 +1,20 @@
+.welcome__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.welcome__header {
+    display: flex;
+}
+
+.welcome__header > h1 {
+    color: azure;
+}
+
+.welcome__header > h1.skate {
+    color: #2b745e;;
+}
+
+

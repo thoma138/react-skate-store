@@ -3,36 +3,33 @@ import "./Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
+import Header from "./Header";
 let Checkout = () => {
   const [{ basket, user }, dispatch] = useStateValue();
   return (
-    <div className='checkout'>
-      <div className='checkout__left'>
-        <img
-          className='checkout__ad'
-          src='https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg'
-          alt=''
-        />
-        <h3>
-          Hello {user?.email /* ? checks if user exists (optional chaining) */}
-        </h3>
-        <div className='checkout__title'>
-          <h2>Your Shopping Basket</h2>
-          {basket.map((item) => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-            />
-          ))}
+    <>
+      <Header />
+      <div className='checkout'>
+        <div className='checkout__left'>
+          <h3>Hello {user?.email}</h3>
+          <div className='checkout__title'>
+            <h2>This is your Trolley:</h2>
+            {basket.map((item) => (
+              <CheckoutProduct
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+                rating={item.rating}
+              />
+            ))}
+          </div>
+        </div>
+        <div className='checkout__right'>
+          <Subtotal />
         </div>
       </div>
-      <div className='checkout__right'>
-        <Subtotal />
-      </div>
-    </div>
+    </>
   );
 };
 
